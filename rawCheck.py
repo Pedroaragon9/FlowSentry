@@ -4,7 +4,8 @@ import time
 from datetime import datetime
 
 def create_log_file(path):
-    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    # Using underscores instead of colons and spaces for compatibility with Windows file naming
+    current_time = datetime.now().strftime('%Y%m%d_%H%M%S')
     log_filename = f"log_{current_time}.txt"
     with open(os.path.join(path, log_filename), 'w') as f:
         f.write(f'No new files added as of {current_time}')
